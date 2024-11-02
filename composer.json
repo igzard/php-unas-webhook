@@ -1,12 +1,12 @@
 {
-    "name": "igzard/php-skeleton",
-    "description": "🎉 This skeleton PHP package created for your new package idea",
+    "name": "igzard/php-unas-webhook",
+    "description": "Unas Webhook Processor",
     "type": "library",
-    "keywords": ["php", "skeleton", "package"],
+    "keywords": ["php", "unas", "webhook", "processor"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Igzard\\PhpSkeleton\\": "src/"
+            "Igzard\\PhpUnasWebhook\\": "src/"
         }
     },
     "authors": [

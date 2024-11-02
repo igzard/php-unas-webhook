@@ -1,6 +1,4 @@
 /vendor/
 /.idea/
-composer.lock
-phpunit.xml
 .php-cs-fixer.cache
 .phpunit.result.cache

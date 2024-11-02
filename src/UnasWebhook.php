@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Igzard\PhpSkeleton;
+namespace Igzard\PhpUnasWebhook;
 
-final class Example
+final class UnasWebhook
 {
     public function hello(): string
     {
