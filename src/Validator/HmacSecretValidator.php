@@ -15,7 +15,7 @@ class HmacSecretValidator
      *
      * @throws \Exception
      */
-    public function validate(Hmac $hmac): void
+    public function validate(Hmac $hmac, string $json): void
     {
         global $_SERVER;
 
@@ -25,8 +25,15 @@ class HmacSecretValidator
             throw new \Exception('HMAC header is missing');
         }
 
-        if ($hmac->getHmac() !== $hmacHeader) {
+        if (!$this->verify($hmacHeader, $json, $hmac)) {
             throw new \Exception('HMAC is invalid');
         }
+    }
+
+    private function verify(string $hmacHeader, string $json, Hmac $hmac): bool
+    {
+        $hmac = base64_encode(hash_hmac('sha256', $json, $hmac->getHmac(), true));
+
+        return hash_equals($hmacHeader, $hmac);
     }
 }

@@ -34,12 +34,18 @@ final class UnasWebhook
     }
 
     /**
+     * Validate HMAC header and process webhook payload.
+     *
+     * @param string $json unas webhook payload in JSON format
+     *
+     * @return WebhookResponse Webhook object response
+     *
      * @throws \Exception
      */
-    public function process(string $unasPayloadJson): WebhookResponse
+    public function process(string $json): WebhookResponse
     {
-        $this->hmacSecretValidator->validate($this->hmac);
+        $this->hmacSecretValidator->validate($this->hmac, $json);
 
-        return $this->webhookProcessor->handle($unasPayloadJson);
+        return $this->webhookProcessor->handle($json);
     }
 }
