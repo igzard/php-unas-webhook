@@ -32,7 +32,7 @@ class HmacSecretValidator
 
     private function verify(string $hmacHeader, string $json, Hmac $hmac): bool
     {
-        $hmac = base64_encode(hash_hmac('sha256', $json, $hmac->getHmac(), true));
+        $hmac = base64_encode(hash_hmac('sha256', $json, $hmac->getValue(), true));
 
         return hash_equals($hmacHeader, $hmac);
     }
