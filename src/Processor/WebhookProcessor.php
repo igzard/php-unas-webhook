@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Igzard\PhpUnasWebhook\Processor;
 
-use Igzard\PhpUnasWebhook\Entity\WebhookResponse;
+use Igzard\PhpUnasWebhook\Entity\UnasOrder;
 use Igzard\PhpUnasWebhook\Exception\InvalidJsonException;
 
 class WebhookProcessor
@@ -12,7 +12,7 @@ class WebhookProcessor
     /**
      * @throws \Exception
      */
-    public function handle(string $json): WebhookResponse
+    public function handle(string $json): UnasOrder
     {
         $payload = json_decode($json, true);
 
@@ -20,6 +20,6 @@ class WebhookProcessor
             throw InvalidJsonException::create();
         }
 
-        return new WebhookResponse();
+        return new UnasOrder();
     }
 }

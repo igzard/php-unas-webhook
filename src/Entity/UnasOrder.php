@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Igzard\PhpUnasWebhook\Entity;
 
-class WebhookResponse
+class UnasOrder
 {
     public function __construct()
     {

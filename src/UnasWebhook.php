@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Igzard\PhpUnasWebhook;
 
-use Igzard\PhpUnasWebhook\Entity\WebhookResponse;
+use Igzard\PhpUnasWebhook\Entity\UnasOrder;
 use Igzard\PhpUnasWebhook\Processor\WebhookProcessor;
 use Igzard\PhpUnasWebhook\Validator\HmacSecretValidator;
 use Igzard\PhpUnasWebhook\ValueObject\Hmac;
@@ -26,9 +26,11 @@ final class UnasWebhook
      */
     private WebhookProcessor $webhookProcessor;
 
-    public function __construct(string $hmac)
+    public function __construct(array $configuration)
     {
-        $this->hmac = new Hmac($hmac);
+        $config = Config::init($configuration);
+
+        $this->hmac = new Hmac($config->getHmac());
         $this->hmacSecretValidator = new HmacSecretValidator();
         $this->webhookProcessor = new WebhookProcessor();
     }
@@ -38,11 +40,11 @@ final class UnasWebhook
      *
      * @param string $json unas webhook payload in JSON format
      *
-     * @return WebhookResponse Webhook object response
+     * @return UnasOrder Webhook object response
      *
      * @throws \Exception
      */
-    public function process(string $json): WebhookResponse
+    public function process(string $json): UnasOrder
     {
         $this->hmacSecretValidator->validate($this->hmac, $json);
 
