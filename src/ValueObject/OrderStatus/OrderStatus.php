@@ -6,16 +6,16 @@ namespace Igzard\PhpUnasWebhook\ValueObject\OrderStatus;
 
 class OrderStatus
 {
-    private OrderStatusIdCollection $id;
+    private OrderStatusId $id;
     private string $name;
 
-    public function __construct(OrderStatusIdCollection $id, string $name)
+    public function __construct(OrderStatusId $id, string $name)
     {
         $this->id = $id;
         $this->name = $name;
     }
 
-    public function getId(): OrderStatusIdCollection
+    public function getId(): OrderStatusId
     {
         return $this->id;
     }

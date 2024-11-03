@@ -6,6 +6,6 @@ namespace Igzard\PhpUnasWebhook\ValueObject\ProductCategory;
 
 use Igzard\PhpUnasWebhook\Common\StringIdCollection;
 
-class ProductCategoryIdCollection extends StringIdCollection
+class ProductCategoryId extends StringIdCollection
 {
 }

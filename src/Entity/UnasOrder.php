@@ -35,6 +35,8 @@ class UnasOrder
 
     private Shipping $shipping;
 
+    private array $orderParameters;
+
     private Payment $payment;
 
     private DiscountPercent $discountPercent;
@@ -167,6 +169,18 @@ class UnasOrder
     public function setShipping(Shipping $shipping): self
     {
         $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    public function getOrderParameters(): array
+    {
+        return $this->orderParameters;
+    }
+
+    public function setOrderParameters(array $orderParameters): self
+    {
+        $this->orderParameters = $orderParameters;
 
         return $this;
     }

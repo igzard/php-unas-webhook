@@ -6,6 +6,6 @@ namespace Igzard\PhpUnasWebhook\ValueObject\OrderStatus;
 
 use Igzard\PhpUnasWebhook\Common\IdCollection;
 
-class OrderStatusIdCollection extends IdCollection
+class OrderStatusId extends IdCollection
 {
 }
