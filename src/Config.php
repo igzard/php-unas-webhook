@@ -7,6 +7,7 @@ namespace Igzard\PhpUnasWebhook;
 class Config
 {
     private string $hmac;
+    private string $hmacHeader;
 
     private function __construct()
     {
@@ -16,6 +17,7 @@ class Config
     {
         $self = new self();
         $self->hmac = $config['hmac'] ?? '';
+        $self->hmacHeader = $config['hmac_header'] ?? '';
 
         return $self;
     }
@@ -23,5 +25,10 @@ class Config
     public function getHmac(): string
     {
         return $this->hmac;
+    }
+
+    public function getHmacHeader(): string
+    {
+        return $this->hmacHeader;
     }
 }

@@ -26,12 +26,15 @@ final class UnasWebhook
      */
     private WebhookProcessor $webhookProcessor;
 
+    /**
+     * @throws \Exception
+     */
     public function __construct(array $configuration)
     {
         $config = Config::init($configuration);
 
         $this->hmac = new Hmac($config->getHmac());
-        $this->hmacSecretValidator = new HmacSecretValidator();
+        $this->hmacSecretValidator = new HmacSecretValidator($config->getHmacHeader());
         $this->webhookProcessor = new WebhookProcessor();
     }
 

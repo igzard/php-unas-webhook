@@ -8,7 +8,15 @@ use Igzard\PhpUnasWebhook\ValueObject\Hmac;
 
 class HmacSecretValidator
 {
-    private const string HMAC_HEADER = 'HTTP_X_UNAS_HMAC';
+    private string $hmacHeader;
+
+    /**
+     * @throws \Exception
+     */
+    public function __construct(string $hmacHeader)
+    {
+        $this->hmacHeader = $hmacHeader;
+    }
 
     /**
      * Validate HMAC header from request.
@@ -17,23 +25,13 @@ class HmacSecretValidator
      */
     public function validate(Hmac $hmac, string $json): void
     {
-        global $_SERVER;
-
-        $hmacHeader = $_SERVER[self::HMAC_HEADER] ?? null;
-
-        if (null === $hmacHeader) {
-            throw new \Exception('HMAC header is missing');
-        }
-
-        if (!$this->verify($hmacHeader, $json, $hmac)) {
+        if (!$this->verify($this->hmacHeader, $json, $hmac)) {
             throw new \Exception('HMAC is invalid');
         }
     }
 
     private function verify(string $hmacHeader, string $json, Hmac $hmac): bool
     {
-        $hmac = base64_encode(hash_hmac('sha256', $json, $hmac->getValue(), true));
-
-        return hash_equals($hmacHeader, $hmac);
+        return hash_equals($hmacHeader, base64_encode(hash_hmac('sha256', $json, $hmac->getValue(), true)));
     }
 }

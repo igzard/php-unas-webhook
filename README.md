@@ -31,6 +31,7 @@ use Igzard\PhpUnasWebhook\UnasWebhook;
 
 $webhook = new UnasWebhook([
     'hmac' => 'your-unas-shop-hmac-secret',
+    'hmac_header' => 'Hmac secret from http header e.g: $_SERVER["HTTP_X_UNAS_HMAC"]'
 ]);
 
 //Process incoming webhook request
