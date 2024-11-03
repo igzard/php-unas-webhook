@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Igzard\PhpUnasWebhook\ValueObject;
+namespace Igzard\PhpUnasWebhook\Common;
 
-abstract class GenericStringId
+abstract class StringIdCollection extends GenericCollection
 {
     protected string $value;
 

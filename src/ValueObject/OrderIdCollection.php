@@ -6,6 +6,6 @@ namespace Igzard\PhpUnasWebhook\ValueObject;
 
 use Igzard\PhpUnasWebhook\Common\StringIdCollection;
 
-final class Hmac extends StringIdCollection
+class OrderIdCollection extends StringIdCollection
 {
 }
