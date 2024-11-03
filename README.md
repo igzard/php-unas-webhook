@@ -6,7 +6,7 @@
     <p align="left">
         <a href="https://github.com/igzard/php-unas-webhook/actions/workflows/tests.yml"><img src="https://img.shields.io/github/actions/workflow/status/igzard/php-unas-webhook/tests.yml?label=tests&style=flat-square" alt="Tests passed"></a>
         <a href="https://packagist.org/packages/igzard/php-unas-webhook"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/igzard/php-unas-webhook"></a>
-        <a href="https://packagist.org/packages/igzard/php-unas-webhook"><img alt="Latest Version" src="https://img.shields.io/packagist/v/igzard/php-unas-webhookn"></a>
+        <a href="https://packagist.org/packages/igzard/php-unas-webhook"><img alt="Latest Version" src="https://img.shields.io/packagist/v/igzard/php-unas-webhook"></a>
     </p>
 </p>
 
@@ -26,7 +26,7 @@ composer require igzard/php-unas-webhook
 
 ```php
 
-//Initialize Unas Webhook with your Unas shop HMAC secret
+//Initialize Unas Webhook with your Unas shop HMAC secret and request header UNAS hmac
 use Igzard\PhpUnasWebhook\UnasWebhook;
 
 $webhook = new UnasWebhook([
@@ -35,7 +35,7 @@ $webhook = new UnasWebhook([
 ]);
 
 //Process incoming webhook request
-$unasOrder = $webhook->process('Webhook request json body');
+$unasOrder = $webhook->process("{'message':'Unas request json'}");
 
 //Get order data eg. order number
 $orderNumber = $unasOrder->getOrderId()->getValue();
