@@ -8,7 +8,7 @@ enum Language: string
 {
     case HU = 'hu';
     case AL = 'al';                // Albán
-    case AU = 'au)';          // Angol (AU)
+    case AU = 'au';          // Angol (AU)
     case US = 'us';          // Angol (US)
     case AR = 'ar';                // Arab
     case BG = 'bg';             // Bolgár
@@ -21,7 +21,7 @@ enum Language: string
     case BE = 'be';         // Francia (BE)
     case GR = 'gr';              // Görög
     case CY = 'cy';         // Görög (CY)
-    case HE = 'he'                 // Héber
+    case HE = 'he';                 // Héber
     case IN = 'in';                 // Hindi
     case NL = 'nl';            // Holland
     case HR = 'hr';              // Horvát
@@ -100,7 +100,7 @@ enum Language: string
             'tr' => self::TR,
             'ua' => self::UA,
             'vn' => self::VN,
-            default => throw new \InvalidArgumentException('Invalid language: ' . $country),
+            default => throw new \InvalidArgumentException('Invalid language: '.$country),
         };
     }
 }

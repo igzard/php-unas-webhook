@@ -68,7 +68,7 @@ make phpunit
 
 🎨 Run **php-cs-fixer**:
 ```bash
-make php-cs-fixer
+make cs-fix
 ```
 
 🔥 Run **phpstan**:
