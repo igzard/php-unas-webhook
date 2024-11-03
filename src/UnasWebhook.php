@@ -46,8 +46,10 @@ final class UnasWebhook
      */
     public function process(string $json): UnasOrder
     {
+        // Validate HMAC header
         $this->hmacSecretValidator->validate($this->hmac, $json);
 
+        // Process webhook payload
         return $this->webhookProcessor->handle($json);
     }
 }
