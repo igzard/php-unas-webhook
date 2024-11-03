@@ -43,6 +43,8 @@ $orderNumber = $unasOrder->getOrderId()->getValue();
 //or get customer data
 $customer = $unasOrder->getCustomer();
 
+//processing Unas Order with your domain logic...
+
 ```
 
 ## Contributing
