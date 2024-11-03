@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace Igzard\PhpUnasWebhook\Entity;
 
-class Shipping
+class Payment
 {
     private string $name;
-
-    private string $type;
 
     private float $cost;
 
@@ -20,18 +18,6 @@ class Shipping
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
 
         return $this;
     }

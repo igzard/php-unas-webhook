@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Igzard\PhpUnasWebhook\Entity;
+namespace Igzard\PhpUnasWebhook\Entity\Product;
 
 use Igzard\PhpUnasWebhook\ValueObject\Product\ProductIdCollection;
 use Igzard\PhpUnasWebhook\ValueObject\ProductCategory\ProductCategory;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Igzard\PhpUnasWebhook\Entity;
+namespace Igzard\PhpUnasWebhook\Entity\Customer;
 
 use Igzard\PhpUnasWebhook\Enum\Country;
 

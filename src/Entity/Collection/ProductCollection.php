@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Igzard\PhpUnasWebhook\Entity\Collection;
 
 use Igzard\PhpUnasWebhook\Common\GenericCollection;
-use Igzard\PhpUnasWebhook\Entity\Product;
+use Igzard\PhpUnasWebhook\Entity\Product\Product;
 
 /**
  * @method Product[] getIterator()
