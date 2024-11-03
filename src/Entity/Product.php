@@ -33,11 +33,6 @@ class Product
 
     private array $productParameters;
 
-    public static function create(): self
-    {
-        return new self();
-    }
-
     public function getProductId(): ProductIdCollection
     {
         return $this->productId;
