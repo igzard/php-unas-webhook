@@ -6,12 +6,12 @@ namespace Igzard\PhpUnasWebhook\Validator;
 
 use Igzard\PhpUnasWebhook\ValueObject\Hmac;
 
-class HmacSecretValidator
+readonly class HmacSecretValidator
 {
     /**
      * @throws \Exception
      */
-    public function __construct(private readonly string $hmacHeader)
+    public function __construct(private string $hmacHeader)
     {
     }
 
