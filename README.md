@@ -66,12 +66,17 @@ make code-quality
 make phpunit
 ```
 
-🎨 Run **php-cs-fixer**:
+🎨 Run **cs-fix**:
 ```bash
 make cs-fix
 ```
 
 🔥 Run **phpstan**:
+```bash
+make phpstan
+```
+
+♻️ Run **rector**:
 ```bash
 make phpstan
 ```

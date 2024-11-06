@@ -6,13 +6,8 @@ namespace Igzard\PhpUnasWebhook\ValueObject\ProductCategory;
 
 class ProductCategory
 {
-    private ProductCategoryId $id;
-    private string $name;
-
-    public function __construct(ProductCategoryId $id, string $name)
+    public function __construct(private readonly ProductCategoryId $id, private readonly string $name)
     {
-        $this->id = $id;
-        $this->name = $name;
     }
 
     public function getId(): ProductCategoryId

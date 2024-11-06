@@ -25,4 +25,12 @@ phpstan: ## Run phpstan
 	php ./vendor/bin/phpstan
 
 .PHONY: code-quality
-code-quality: php-cs-fixer-check phpunit phpstan ## Run code quality checks
+code-quality: php-cs-fixer-check phpunit phpstan rector-check ## Run code quality checks
+
+.PHONY: rector
+rector: ## Run rector
+	php ./vendor/bin/rector process --dry-run
+
+.PHONY: rector-check
+rector-check: ## Run rector
+	php ./vendor/bin/rector process

@@ -8,14 +8,11 @@ use Igzard\PhpUnasWebhook\ValueObject\Hmac;
 
 class HmacSecretValidator
 {
-    private string $hmacHeader;
-
     /**
      * @throws \Exception
      */
-    public function __construct(string $hmacHeader)
+    public function __construct(private readonly string $hmacHeader)
     {
-        $this->hmacHeader = $hmacHeader;
     }
 
     /**

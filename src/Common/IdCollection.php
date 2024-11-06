@@ -6,11 +6,8 @@ namespace Igzard\PhpUnasWebhook\Common;
 
 abstract class IdCollection extends GenericCollection
 {
-    protected int $value;
-
-    public function __construct($value)
+    public function __construct(protected int $value)
     {
-        $this->value = $value;
     }
 
     public function getValue(): int

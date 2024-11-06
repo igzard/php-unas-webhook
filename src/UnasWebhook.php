@@ -9,7 +9,7 @@ use Igzard\PhpUnasWebhook\Processor\WebhookProcessor;
 use Igzard\PhpUnasWebhook\Validator\HmacSecretValidator;
 use Igzard\PhpUnasWebhook\ValueObject\Hmac;
 
-final class UnasWebhook
+final readonly class UnasWebhook
 {
     /**
      * Hmac secret key.

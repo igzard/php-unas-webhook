@@ -26,7 +26,7 @@ abstract class GenericCollection implements \IteratorAggregate, \JsonSerializabl
 
     public function isEmpty(): bool
     {
-        return 0 === \count($this->values);
+        return [] === $this->values;
     }
 
     public function clone(): self
