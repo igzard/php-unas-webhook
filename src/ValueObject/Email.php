@@ -6,7 +6,7 @@ namespace Igzard\PhpUnasWebhook\ValueObject;
 
 class Email
 {
-    private string $email;
+    private readonly string $email;
 
     public function __construct(string $email)
     {
