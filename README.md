@@ -78,7 +78,7 @@ make phpstan
 
 ♻️ Run **rector**:
 ```bash
-make phpstan
+make rector
 ```
 
 **PHP UNAS Webhook processor** was created by **[Gergely Ignácz](https://x.com/igz4rd)** under the **[MIT license](https://opensource.org/licenses/MIT)**.

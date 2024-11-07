@@ -32,5 +32,5 @@ rector: ## Run rector
 	php ./vendor/bin/rector process --dry-run
 
 .PHONY: rector-check
-rector-check: ## Run rector
+rector-check: ## Run rector check
 	php ./vendor/bin/rector process
