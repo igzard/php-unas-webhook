@@ -1,6 +1,6 @@
 # PHP Unas Webhook Processor
 
-🛍️ Use this package to process incoming webhooks from Unas API.
+🛍️ Use this package to process incoming webhooks from Unas.
 
 <p align="left">
     <p align="left">
@@ -15,6 +15,14 @@
 > **Requires [PHP 8.3+](https://php.net/releases/)**
 
 ## Getting started
+
+### Get Hmac Secret from UNAS
+
+1. First step you need to login to your unas webshop admin (https://unas.hu/belepes)
+2. Navigate to Settings -> External connections -> API connection (https://shop.unas.hu/admin_config_connect_api.php)
+3. Click to "Verify webhook" tab
+4. Click to "HMAC key generation"
+5. Copy+Paste your Hmac secret code
 
 ### Installation
 
@@ -38,10 +46,12 @@ $webhook = new UnasWebhook([
 $unasOrder = $webhook->process("{'message':'Unas request json'}");
 
 //Get order data eg. order number
-$orderNumber = $unasOrder->getOrderId()->getValue();
+$orderNumber = $unasOrder->getOrderId()->getValue(); //return with unas webshop order number string
 
 //or get customer data
-$customer = $unasOrder->getCustomer();
+$customer = $unasOrder->getCustomer(); //return with Customer data object
+
+//etc.
 
 //processing Unas Order with your domain logic...
 
