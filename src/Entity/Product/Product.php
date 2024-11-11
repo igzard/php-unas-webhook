@@ -38,11 +38,9 @@ class Product
         return $this->productId;
     }
 
-    public function setProductId(ProductIdCollection $productId): self
+    public function setProductId(ProductIdCollection $productId): void
     {
         $this->productId = $productId;
-
-        return $this;
     }
 
     public function getSku(): string
@@ -50,11 +48,9 @@ class Product
         return $this->sku;
     }
 
-    public function setSku(string $sku): self
+    public function setSku(string $sku): void
     {
         $this->sku = $sku;
-
-        return $this;
     }
 
     public function getSkuType(): string
@@ -62,11 +58,9 @@ class Product
         return $this->skuType;
     }
 
-    public function setSkuType(string $skuType): self
+    public function setSkuType(string $skuType): void
     {
         $this->skuType = $skuType;
-
-        return $this;
     }
 
     public function getName(): string
@@ -74,11 +68,9 @@ class Product
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getCategory(): ProductCategory
@@ -86,11 +78,9 @@ class Product
         return $this->category;
     }
 
-    public function setCategory(ProductCategory $category): self
+    public function setCategory(ProductCategory $category): void
     {
         $this->category = $category;
-
-        return $this;
     }
 
     public function getQuantity(): float
@@ -98,11 +88,9 @@ class Product
         return $this->quantity;
     }
 
-    public function setQuantity(float $quantity): self
+    public function setQuantity(float $quantity): void
     {
         $this->quantity = $quantity;
-
-        return $this;
     }
 
     public function getUnit(): string
@@ -110,11 +98,9 @@ class Product
         return $this->unit;
     }
 
-    public function setUnit(string $unit): self
+    public function setUnit(string $unit): void
     {
         $this->unit = $unit;
-
-        return $this;
     }
 
     public function getNetPrice(): float
@@ -122,11 +108,9 @@ class Product
         return $this->netPrice;
     }
 
-    public function setNetPrice(float $netPrice): self
+    public function setNetPrice(float $netPrice): void
     {
         $this->netPrice = $netPrice;
-
-        return $this;
     }
 
     public function getGrossPrice(): float
@@ -134,11 +118,9 @@ class Product
         return $this->grossPrice;
     }
 
-    public function setGrossPrice(float $grossPrice): self
+    public function setGrossPrice(float $grossPrice): void
     {
         $this->grossPrice = $grossPrice;
-
-        return $this;
     }
 
     public function getVatRate(): float
@@ -146,11 +128,9 @@ class Product
         return $this->vatRate;
     }
 
-    public function setVatRate(float $vatRate): self
+    public function setVatRate(float $vatRate): void
     {
         $this->vatRate = $vatRate;
-
-        return $this;
     }
 
     public function isDiscounted(): bool
@@ -158,11 +138,9 @@ class Product
         return $this->discounted;
     }
 
-    public function setDiscounted(bool $discounted): self
+    public function setDiscounted(bool $discounted): void
     {
         $this->discounted = $discounted;
-
-        return $this;
     }
 
     public function getProductParameters(): array
@@ -170,10 +148,8 @@ class Product
         return $this->productParameters;
     }
 
-    public function setProductParameters(array $productParameters): self
+    public function setProductParameters(array $productParameters): void
     {
         $this->productParameters = $productParameters;
-
-        return $this;
     }
 }

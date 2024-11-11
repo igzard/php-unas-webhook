@@ -17,11 +17,9 @@ class DiscountPercent
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    public function setPrice(float $price): void
     {
         $this->price = $price;
-
-        return $this;
     }
 
     public function getTitle(): string
@@ -29,11 +27,9 @@ class DiscountPercent
         return $this->title;
     }
 
-    public function setTitle(string $title): self
+    public function setTitle(string $title): void
     {
         $this->title = $title;
-
-        return $this;
     }
 
     public function getPercent(): float
@@ -41,10 +37,8 @@ class DiscountPercent
         return $this->percent;
     }
 
-    public function setPercent(float $percent): self
+    public function setPercent(float $percent): void
     {
         $this->percent = $percent;
-
-        return $this;
     }
 }

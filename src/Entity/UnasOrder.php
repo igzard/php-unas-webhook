@@ -46,11 +46,9 @@ class UnasOrder
         return $this->shopId;
     }
 
-    public function setShopId(ShopId $shopId): self
+    public function setShopId(ShopId $shopId): void
     {
         $this->shopId = $shopId;
-
-        return $this;
     }
 
     public function getOrderId(): OrderId
@@ -58,11 +56,9 @@ class UnasOrder
         return $this->orderId;
     }
 
-    public function setOrderId(OrderId $orderId): self
+    public function setOrderId(OrderId $orderId): void
     {
         $this->orderId = $orderId;
-
-        return $this;
     }
 
     public function getGrandTotal(): float
@@ -70,11 +66,9 @@ class UnasOrder
         return $this->grandTotal;
     }
 
-    public function setGrandTotal(float $grandTotal): self
+    public function setGrandTotal(float $grandTotal): void
     {
         $this->grandTotal = $grandTotal;
-
-        return $this;
     }
 
     public function getTime(): int
@@ -82,11 +76,9 @@ class UnasOrder
         return $this->time;
     }
 
-    public function setTime(int $time): self
+    public function setTime(int $time): void
     {
         $this->time = $time;
-
-        return $this;
     }
 
     public function getDateTime(): \DateTime
@@ -94,11 +86,9 @@ class UnasOrder
         return $this->dateTime;
     }
 
-    public function setDateTime(\DateTime $dateTime): self
+    public function setDateTime(\DateTime $dateTime): void
     {
         $this->dateTime = $dateTime;
-
-        return $this;
     }
 
     public function getComment(): string
@@ -106,11 +96,9 @@ class UnasOrder
         return $this->comment;
     }
 
-    public function setComment(string $comment): self
+    public function setComment(string $comment): void
     {
         $this->comment = $comment;
-
-        return $this;
     }
 
     public function getCurrency(): Currency
@@ -118,11 +106,9 @@ class UnasOrder
         return $this->currency;
     }
 
-    public function setCurrency(Currency $currency): self
+    public function setCurrency(Currency $currency): void
     {
         $this->currency = $currency;
-
-        return $this;
     }
 
     public function getOrderStatus(): OrderStatus
@@ -130,11 +116,9 @@ class UnasOrder
         return $this->orderStatus;
     }
 
-    public function setOrderStatus(OrderStatus $orderStatus): self
+    public function setOrderStatus(OrderStatus $orderStatus): void
     {
         $this->orderStatus = $orderStatus;
-
-        return $this;
     }
 
     public function getProducts(): ProductCollection
@@ -142,11 +126,9 @@ class UnasOrder
         return $this->products;
     }
 
-    public function setProducts(ProductCollection $products): self
+    public function setProducts(ProductCollection $products): void
     {
         $this->products = $products;
-
-        return $this;
     }
 
     public function getCustomer(): Customer
@@ -154,11 +136,9 @@ class UnasOrder
         return $this->customer;
     }
 
-    public function setCustomer(Customer $customer): self
+    public function setCustomer(Customer $customer): void
     {
         $this->customer = $customer;
-
-        return $this;
     }
 
     public function getShipping(): Shipping
@@ -166,11 +146,9 @@ class UnasOrder
         return $this->shipping;
     }
 
-    public function setShipping(Shipping $shipping): self
+    public function setShipping(Shipping $shipping): void
     {
         $this->shipping = $shipping;
-
-        return $this;
     }
 
     public function getOrderParameters(): array
@@ -178,11 +156,9 @@ class UnasOrder
         return $this->orderParameters;
     }
 
-    public function setOrderParameters(array $orderParameters): self
+    public function setOrderParameters(array $orderParameters): void
     {
         $this->orderParameters = $orderParameters;
-
-        return $this;
     }
 
     public function getPayment(): Payment
@@ -190,11 +166,9 @@ class UnasOrder
         return $this->payment;
     }
 
-    public function setPayment(Payment $payment): self
+    public function setPayment(Payment $payment): void
     {
         $this->payment = $payment;
-
-        return $this;
     }
 
     public function getDiscountPercent(): DiscountPercent
@@ -202,10 +176,8 @@ class UnasOrder
         return $this->discountPercent;
     }
 
-    public function setDiscountPercent(DiscountPercent $discountPercent): self
+    public function setDiscountPercent(DiscountPercent $discountPercent): void
     {
         $this->discountPercent = $discountPercent;
-
-        return $this;
     }
 }

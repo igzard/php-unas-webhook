@@ -17,11 +17,9 @@ class Contact
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getPhone(): string
@@ -29,11 +27,9 @@ class Contact
         return $this->phone;
     }
 
-    public function setPhone(string $phone): self
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
-
-        return $this;
     }
 
     public function getMobile(): string
@@ -41,10 +37,8 @@ class Contact
         return $this->mobile;
     }
 
-    public function setMobile(string $mobile): self
+    public function setMobile(string $mobile): void
     {
         $this->mobile = $mobile;
-
-        return $this;
     }
 }
