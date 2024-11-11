@@ -16,10 +16,17 @@ use Igzard\PhpUnasWebhook\Entity\Shipping as OrderShipping;
 use Igzard\PhpUnasWebhook\Entity\UnasOrder;
 use Igzard\PhpUnasWebhook\Enum\Country;
 use Igzard\PhpUnasWebhook\Enum\Currency;
+use Igzard\PhpUnasWebhook\Enum\Language;
 use Igzard\PhpUnasWebhook\Exception\InvalidJsonException;
+use Igzard\PhpUnasWebhook\Validator\JsonValidator;
+use Igzard\PhpUnasWebhook\ValueObject\Email;
+use Igzard\PhpUnasWebhook\ValueObject\OrderId;
 use Igzard\PhpUnasWebhook\ValueObject\OrderStatus\OrderStatus;
 use Igzard\PhpUnasWebhook\ValueObject\OrderStatus\OrderStatusId;
+use Igzard\PhpUnasWebhook\ValueObject\Product\ProductId;
 use Igzard\PhpUnasWebhook\ValueObject\ProductCategory\ProductCategory;
+use Igzard\PhpUnasWebhook\ValueObject\ProductCategory\ProductCategoryId;
+use Igzard\PhpUnasWebhook\ValueObject\ShopId;
 
 class WebhookProcessor
 {
@@ -30,8 +37,8 @@ class WebhookProcessor
     {
         $payload = json_decode($json, true);
 
-        if (\JSON_ERROR_NONE !== json_last_error()) {
-            throw InvalidJsonException::create();
+        if (false === (new JsonValidator())->validate($json)) {
+            throw new InvalidJsonException('Invalid JSON');
         }
 
         return $this->createUnasOrder($payload);
@@ -46,7 +53,7 @@ class WebhookProcessor
         $discountPercent = new DiscountPercent();
         $discountPercent->setPrice($payload['discountPercent']['price']);
         $discountPercent->setTitle($payload['discountPercent']['title']);
-        $discountPercent->setPercent($payload['discountPercent']['percent']);
+        $discountPercent->setPercent((float) $payload['discountPercent']['percent']);
 
         $orderStatus = new OrderStatus(
             new OrderStatusId($payload['orderStatus']['id']),
@@ -54,8 +61,8 @@ class WebhookProcessor
         );
 
         $unasOrder = new UnasOrder();
-        $unasOrder->setShopId($payload['shopID']);
-        $unasOrder->setOrderId($payload['orderID']);
+        $unasOrder->setShopId(new ShopId($payload['shopID']));
+        $unasOrder->setOrderId(new OrderId($payload['orderID']));
         $unasOrder->setGrandTotal($payload['grandTotal']);
         $unasOrder->setTime($payload['time']);
         $unasOrder->setDateTime(new \DateTime('@'.$payload['time']));
@@ -78,18 +85,18 @@ class WebhookProcessor
 
         foreach ($payload['products'] as $unasProduct) {
             $product = new Product();
-            $product->setProductId($unasProduct['ID']);
+            $product->setProductId(new ProductId($unasProduct['ID']));
             $product->setSku($unasProduct['sku']);
             $product->setSkuType($unasProduct['skuType']);
             $product->setName($unasProduct['name']);
-            $product->setCategory(new ProductCategory($unasProduct['category']['id'], $unasProduct['category']['name']));
+            $product->setCategory(new ProductCategory(new ProductCategoryId($unasProduct['category']['ID']), $unasProduct['category']['name']));
             $product->setQuantity($unasProduct['quantity']);
             $product->setUnit($unasProduct['unit']);
             $product->setNetPrice($unasProduct['netPrice']);
             $product->setGrossPrice($unasProduct['grossPrice']);
-            $product->setVatRate($unasProduct['vatRate']);
+            $product->setVatRate($unasProduct['VATRate']);
             $product->setDiscounted($unasProduct['discounted']);
-            $product->setProductParameters($unasProduct['productParameters']);
+            $product->setProductParameters((array) $unasProduct['productParameters']);
 
             $products->add($product);
         }
@@ -124,11 +131,11 @@ class WebhookProcessor
         $customer->setContact($contact);
         $customer->setShipping($shipping);
         $customer->setInvoice($invoice);
-        $customer->setNewsAuth($payload['customer']['newsAuth']);
+        $customer->setNewsAuth($payload['customer']['news_auth']);
         $customer->setGroup($payload['customer']['group']);
-        $customer->setLang($payload['customer']['lang']);
+        $customer->setLang(Language::fromString($payload['customer']['lang']));
         $customer->setSubscribedToNewsletter($payload['customer']['subscribedToNewsletter']);
-        $customer->setEmail($payload['customer']['email']);
+        $customer->setEmail(new Email($payload['customer']['email']));
 
         return $customer;
     }

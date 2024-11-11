@@ -21,7 +21,7 @@ class Customer
 
     private Language $lang;
 
-    private string $subscribedToNewsletter;
+    private bool $subscribedToNewsletter;
 
     private Email $email;
 
@@ -85,12 +85,12 @@ class Customer
         $this->lang = $lang;
     }
 
-    public function getSubscribedToNewsletter(): string
+    public function isSubscribedToNewsletter(): bool
     {
         return $this->subscribedToNewsletter;
     }
 
-    public function setSubscribedToNewsletter(string $subscribedToNewsletter): void
+    public function setSubscribedToNewsletter(bool $subscribedToNewsletter): void
     {
         $this->subscribedToNewsletter = $subscribedToNewsletter;
     }

@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Igzard\PhpUnasWebhook\Entity\Product;
 
-use Igzard\PhpUnasWebhook\ValueObject\Product\ProductIdCollection;
+use Igzard\PhpUnasWebhook\ValueObject\Product\ProductId;
 use Igzard\PhpUnasWebhook\ValueObject\ProductCategory\ProductCategory;
 
 class Product
 {
-    private ProductIdCollection $productId;
+    private ProductId $productId;
 
     private string $sku;
 
@@ -33,12 +33,12 @@ class Product
 
     private array $productParameters;
 
-    public function getProductId(): ProductIdCollection
+    public function getProductId(): ProductId
     {
         return $this->productId;
     }
 
-    public function setProductId(ProductIdCollection $productId): void
+    public function setProductId(ProductId $productId): void
     {
         $this->productId = $productId;
     }

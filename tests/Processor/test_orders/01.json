@@ -1,0 +1,82 @@
+{
+  "shopID": "69312",
+  "orderID": "69312-465741",
+  "grandTotal": 121515,
+  "time": 1729166212,
+  "comment": "",
+  "currency": "Ft",
+  "currencyCode": "HUF",
+  "orderStatus": {
+    "id": 0,
+    "name": "Feldolgozásra vár"
+  },
+  "products": {
+    "1": {
+      "ID": "105690878",
+      "sku": "pana_scbtt770",
+      "skuType": "normal",
+      "name": "Panasonic SC-BTT770",
+      "category": {
+        "ID": "888465",
+        "name": "Házimozi"
+      },
+      "quantity": 1,
+      "unit": "db",
+      "netPrice": 105000,
+      "grossPrice": 133350,
+      "VATRate": 27,
+      "discounted": true,
+      "productParameters": null
+    }
+  },
+  "customer": {
+    "contact": {
+      "name": "Tóth Jakab",
+      "phone": "+36301234567",
+      "mobile": "+36301234567"
+    },
+    "shipping": {
+      "name": "Tóth Jakab",
+      "zip": "2100",
+      "city": "Gödöllő",
+      "street": "Dózsa György út 114",
+      "country": "hu",
+      "county": ""
+    },
+    "invoice": {
+      "name": "Tóth Jakab",
+      "zip": "2100",
+      "city": "Gödöllő",
+      "street": "Dózsa György út 114",
+      "country": "hu",
+      "county": ""
+    },
+    "news_auth": "0",
+    "group": "0",
+    "lang": "hu",
+    "subscribedToNewsletter": false,
+    "email": "tothjakab@test.com"
+  },
+  "shipping": {
+    "name": "Futárral",
+    "type": "",
+    "cost": 1500
+  },
+  "orderParameters": {
+    "664706": {
+      "orig_question": "Adószám",
+      "orig_answer": "22334455-1-33",
+      "act_question": "Adószám",
+      "act_answer": "22334455-1-33"
+    }
+  },
+  "payment": {
+    "name": "Készpénzzel a helyszínen",
+    "cost": 0
+  },
+  "discountPercent": {
+    "price": 13335,
+    "title": "Kedvezmény",
+    "percent": "10"
+  }
+}
