@@ -16,4 +16,9 @@ class ProductCollection extends GenericCollection
     {
         $this->values = $values;
     }
+
+    public function add(Product $product): void
+    {
+        $this->values[] = $product;
+    }
 }

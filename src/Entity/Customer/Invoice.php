@@ -26,11 +26,9 @@ class Invoice
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getZip(): string
@@ -38,11 +36,9 @@ class Invoice
         return $this->zip;
     }
 
-    public function setZip(string $zip): self
+    public function setZip(string $zip): void
     {
         $this->zip = $zip;
-
-        return $this;
     }
 
     public function getCity(): string
@@ -50,11 +46,9 @@ class Invoice
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    public function setCity(string $city): void
     {
         $this->city = $city;
-
-        return $this;
     }
 
     public function getStreet(): string
@@ -62,11 +56,9 @@ class Invoice
         return $this->street;
     }
 
-    public function setStreet(string $street): self
+    public function setStreet(string $street): void
     {
         $this->street = $street;
-
-        return $this;
     }
 
     public function getCountry(): Country
@@ -74,11 +66,9 @@ class Invoice
         return $this->country;
     }
 
-    public function setCountry(Country $country): self
+    public function setCountry(Country $country): void
     {
         $this->country = $country;
-
-        return $this;
     }
 
     public function getCounty(): Country
@@ -86,10 +76,8 @@ class Invoice
         return $this->county;
     }
 
-    public function setCounty(Country $county): self
+    public function setCounty(Country $county): void
     {
         $this->county = $county;
-
-        return $this;
     }
 }

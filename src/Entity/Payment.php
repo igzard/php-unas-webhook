@@ -15,11 +15,9 @@ class Payment
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getCost(): float
@@ -27,10 +25,8 @@ class Payment
         return $this->cost;
     }
 
-    public function setCost(float $cost): self
+    public function setCost(float $cost): void
     {
         $this->cost = $cost;
-
-        return $this;
     }
 }

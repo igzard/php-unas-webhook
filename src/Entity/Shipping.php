@@ -17,11 +17,9 @@ class Shipping
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getType(): string
@@ -29,11 +27,9 @@ class Shipping
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType(string $type): void
     {
         $this->type = $type;
-
-        return $this;
     }
 
     public function getCost(): float
@@ -41,10 +37,8 @@ class Shipping
         return $this->cost;
     }
 
-    public function setCost(float $cost): self
+    public function setCost(float $cost): void
     {
         $this->cost = $cost;
-
-        return $this;
     }
 }

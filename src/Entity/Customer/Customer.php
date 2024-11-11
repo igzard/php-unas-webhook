@@ -30,11 +30,9 @@ class Customer
         return $this->contact;
     }
 
-    public function setContact(Contact $contact): self
+    public function setContact(Contact $contact): void
     {
         $this->contact = $contact;
-
-        return $this;
     }
 
     public function getShipping(): Shipping
@@ -42,11 +40,9 @@ class Customer
         return $this->shipping;
     }
 
-    public function setShipping(Shipping $shipping): self
+    public function setShipping(Shipping $shipping): void
     {
         $this->shipping = $shipping;
-
-        return $this;
     }
 
     public function getInvoice(): Invoice
@@ -54,11 +50,9 @@ class Customer
         return $this->invoice;
     }
 
-    public function setInvoice(Invoice $invoice): self
+    public function setInvoice(Invoice $invoice): void
     {
         $this->invoice = $invoice;
-
-        return $this;
     }
 
     public function getNewsAuth(): string
@@ -66,11 +60,9 @@ class Customer
         return $this->newsAuth;
     }
 
-    public function setNewsAuth(string $newsAuth): self
+    public function setNewsAuth(string $newsAuth): void
     {
         $this->newsAuth = $newsAuth;
-
-        return $this;
     }
 
     public function getGroup(): string
@@ -78,11 +70,9 @@ class Customer
         return $this->group;
     }
 
-    public function setGroup(string $group): self
+    public function setGroup(string $group): void
     {
         $this->group = $group;
-
-        return $this;
     }
 
     public function getLang(): Language
@@ -90,11 +80,9 @@ class Customer
         return $this->lang;
     }
 
-    public function setLang(Language $lang): self
+    public function setLang(Language $lang): void
     {
         $this->lang = $lang;
-
-        return $this;
     }
 
     public function getSubscribedToNewsletter(): string
@@ -102,11 +90,9 @@ class Customer
         return $this->subscribedToNewsletter;
     }
 
-    public function setSubscribedToNewsletter(string $subscribedToNewsletter): self
+    public function setSubscribedToNewsletter(string $subscribedToNewsletter): void
     {
         $this->subscribedToNewsletter = $subscribedToNewsletter;
-
-        return $this;
     }
 
     public function getEmail(): Email
@@ -114,10 +100,8 @@ class Customer
         return $this->email;
     }
 
-    public function setEmail(Email $email): self
+    public function setEmail(Email $email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 }

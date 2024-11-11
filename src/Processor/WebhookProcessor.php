@@ -39,87 +39,107 @@ class WebhookProcessor
 
     private function createUnasOrder(array $payload): UnasOrder
     {
-        return (new UnasOrder())
-            ->setShopId($payload['shopID'])
-            ->setOrderId($payload['orderID'])
-            ->setGrandTotal($payload['grandTotal'])
-            ->setTime($payload['time'])
-            ->setDateTime(new \DateTime('@'.$payload['time']))
-            ->setComment($payload['comment'])
-            ->setCurrency(Currency::fromString($payload['currencyCode']))
-            ->setOrderStatus(new OrderStatus(
-                new OrderStatusId($payload['orderStatus']['id']),
-                $payload['orderStatus']['name']
-            ))
-            ->setProducts($this->getProducts($payload))
-            ->setCustomer($this->getCustomer($payload))
-            ->setShipping($this->getShipping($payload))
-            ->setOrderParameters($payload['orderParameters'])
-            ->setPayment((new Payment())
-                ->setName($payload['payment']['name'])
-                ->setCost($payload['payment']['cost']))
-            ->setDiscountPercent((new DiscountPercent())
-                ->setPrice($payload['discountPercent']['price'])
-                ->setTitle($payload['discountPercent']['title'])
-                ->setPercent($payload['discountPercent']['percent']));
+        $payment = new Payment();
+        $payment->setName($payload['payment']['name']);
+        $payment->setCost($payload['payment']['cost']);
+
+        $discountPercent = new DiscountPercent();
+        $discountPercent->setPrice($payload['discountPercent']['price']);
+        $discountPercent->setTitle($payload['discountPercent']['title']);
+        $discountPercent->setPercent($payload['discountPercent']['percent']);
+
+        $orderStatus = new OrderStatus(
+            new OrderStatusId($payload['orderStatus']['id']),
+            $payload['orderStatus']['name']
+        );
+
+        $unasOrder = new UnasOrder();
+        $unasOrder->setShopId($payload['shopID']);
+        $unasOrder->setOrderId($payload['orderID']);
+        $unasOrder->setGrandTotal($payload['grandTotal']);
+        $unasOrder->setTime($payload['time']);
+        $unasOrder->setDateTime(new \DateTime('@'.$payload['time']));
+        $unasOrder->setComment($payload['comment']);
+        $unasOrder->setCurrency(Currency::fromString($payload['currencyCode']));
+        $unasOrder->setOrderStatus($orderStatus);
+        $unasOrder->setProducts($this->getProducts($payload));
+        $unasOrder->setCustomer($this->getCustomer($payload));
+        $unasOrder->setShipping($this->getShipping($payload));
+        $unasOrder->setOrderParameters($payload['orderParameters']);
+        $unasOrder->setPayment($payment);
+        $unasOrder->setDiscountPercent($discountPercent);
+
+        return $unasOrder;
     }
 
     private function getProducts(array $payload): ProductCollection
     {
-        $products = [];
+        $products = new ProductCollection();
 
-        foreach ($payload['products'] as $product) {
-            $products[] = (new Product())
-                ->setProductId($product['ID'])
-                ->setSku($product['sku'])
-                ->setSkuType($product['skuType'])
-                ->setName($product['name'])
-                ->setCategory(new ProductCategory($product['category']['id'], $product['category']['name']))
-                ->setQuantity($product['quantity'])
-                ->setUnit($product['unit'])
-                ->setNetPrice($product['netPrice'])
-                ->setGrossPrice($product['grossPrice'])
-                ->setVatRate($product['vatRate'])
-                ->setDiscounted($product['discounted'])
-                ->setProductParameters($product['productParameters']);
+        foreach ($payload['products'] as $unasProduct) {
+            $product = new Product();
+            $product->setProductId($unasProduct['ID']);
+            $product->setSku($unasProduct['sku']);
+            $product->setSkuType($unasProduct['skuType']);
+            $product->setName($unasProduct['name']);
+            $product->setCategory(new ProductCategory($unasProduct['category']['id'], $unasProduct['category']['name']));
+            $product->setQuantity($unasProduct['quantity']);
+            $product->setUnit($unasProduct['unit']);
+            $product->setNetPrice($unasProduct['netPrice']);
+            $product->setGrossPrice($unasProduct['grossPrice']);
+            $product->setVatRate($unasProduct['vatRate']);
+            $product->setDiscounted($unasProduct['discounted']);
+            $product->setProductParameters($unasProduct['productParameters']);
+
+            $products->add($product);
         }
 
-        return new ProductCollection(...$products);
+        return $products;
     }
 
     private function getCustomer(array $payload): Customer
     {
-        return (new Customer())
-            ->setContact((new Contact())
-                    ->setName($payload['customer']['contact']['name'])
-                    ->setPhone($payload['customer']['contact']['phone'])
-                    ->setMobile($payload['customer']['contact']['mobile']))
-            ->setShipping((new Shipping())
-                ->setName($payload['customer']['shipping']['name'])
-                ->setZip($payload['customer']['shipping']['zip'])
-                ->setCity($payload['customer']['shipping']['city'])
-                ->setStreet($payload['customer']['shipping']['street'])
-                ->setCountry(Country::fromString($payload['customer']['shipping']['country']))
-                ->setCounty(Country::fromString($payload['customer']['shipping']['county'])))
-            ->setInvoice((new Invoice())
-                ->setName($payload['customer']['invoice']['name'])
-                ->setZip($payload['customer']['invoice']['zip'])
-                ->setCity($payload['customer']['invoice']['city'])
-                ->setStreet($payload['customer']['invoice']['street'])
-                ->setCountry(Country::fromString($payload['customer']['invoice']['country']))
-                ->setCounty(Country::fromString($payload['customer']['invoice']['county'])))
-            ->setNewsAuth($payload['customer']['newsAuth'])
-            ->setGroup($payload['customer']['group'])
-            ->setLang($payload['customer']['lang'])
-            ->setSubscribedToNewsletter($payload['customer']['subscribedToNewsletter'])
-            ->setEmail($payload['customer']['email']);
+        $contact = new Contact();
+        $contact->setName($payload['customer']['contact']['name']);
+        $contact->setPhone($payload['customer']['contact']['phone']);
+        $contact->setMobile($payload['customer']['contact']['mobile']);
+
+        $shipping = new Shipping();
+        $shipping->setName($payload['customer']['shipping']['name']);
+        $shipping->setZip($payload['customer']['shipping']['zip']);
+        $shipping->setCity($payload['customer']['shipping']['city']);
+        $shipping->setStreet($payload['customer']['shipping']['street']);
+        $shipping->setCountry(Country::fromString($payload['customer']['shipping']['country']));
+        $shipping->setCounty(Country::fromString($payload['customer']['shipping']['county']));
+
+        $invoice = new Invoice();
+        $invoice->setName($payload['customer']['invoice']['name']);
+        $invoice->setZip($payload['customer']['invoice']['zip']);
+        $invoice->setCity($payload['customer']['invoice']['city']);
+        $invoice->setStreet($payload['customer']['invoice']['street']);
+        $invoice->setCountry(Country::fromString($payload['customer']['invoice']['country']));
+        $invoice->setCounty(Country::fromString($payload['customer']['invoice']['county']));
+
+        $customer = new Customer();
+        $customer->setContact($contact);
+        $customer->setShipping($shipping);
+        $customer->setInvoice($invoice);
+        $customer->setNewsAuth($payload['customer']['newsAuth']);
+        $customer->setGroup($payload['customer']['group']);
+        $customer->setLang($payload['customer']['lang']);
+        $customer->setSubscribedToNewsletter($payload['customer']['subscribedToNewsletter']);
+        $customer->setEmail($payload['customer']['email']);
+
+        return $customer;
     }
 
     private function getShipping(array $payload): OrderShipping
     {
-        return (new OrderShipping())
-            ->setName($payload['shipping']['name'])
-            ->setType($payload['shipping']['type'])
-            ->setCost($payload['shipping']['cost']);
+        $orderShipping = new OrderShipping();
+        $orderShipping->setName($payload['shipping']['name']);
+        $orderShipping->setType($payload['shipping']['type']);
+        $orderShipping->setCost($payload['shipping']['cost']);
+
+        return $orderShipping;
     }
 }
