@@ -28,6 +28,13 @@ use Igzard\PhpUnasWebhook\ValueObject\ShopId;
 
 class UnasOrderFactory
 {
+    /**
+     * Create UnasOrder entity from payload array.
+     *
+     * @param array $payload Unas order payload array
+     *
+     * @return UnasOrder UnasOrder entity
+     */
     public function createFromPayload(array $payload): UnasOrder
     {
         $payment = new Payment();
@@ -63,6 +70,13 @@ class UnasOrderFactory
         return $unasOrder;
     }
 
+    /**
+     * Get product collection from unas order payload.
+     *
+     * @param array $payload Unas order payload array
+     *
+     * @return ProductCollection Product collection of unas order
+     */
     private function getProducts(array $payload): ProductCollection
     {
         $products = new ProductCollection();
@@ -88,6 +102,13 @@ class UnasOrderFactory
         return $products;
     }
 
+    /**
+     * Get customer entity from unas order payload.
+     *
+     * @param array $payload Unas order payload array
+     *
+     * @return Customer Customer entity
+     */
     private function getCustomer(array $payload): Customer
     {
         $contact = new Contact();
@@ -124,6 +145,13 @@ class UnasOrderFactory
         return $customer;
     }
 
+    /**
+     * Get shipping entity from unas order payload.
+     *
+     * @param array $payload Unas order payload array
+     *
+     * @return OrderShipping Shipping entity
+     */
     private function getShipping(array $payload): OrderShipping
     {
         $orderShipping = new OrderShipping();

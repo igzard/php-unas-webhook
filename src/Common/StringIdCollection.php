@@ -10,6 +10,9 @@ abstract class StringIdCollection extends GenericCollection
     {
     }
 
+    /**
+     * Get the value of StringId.
+     */
     public function getValue(): string
     {
         return $this->value;

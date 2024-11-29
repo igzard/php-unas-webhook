@@ -17,6 +17,9 @@ class DiscountPercent
         return $this->price;
     }
 
+    /**
+     * @internal
+     */
     public function setPrice(float $price): void
     {
         $this->price = $price;
@@ -27,6 +30,9 @@ class DiscountPercent
         return $this->title;
     }
 
+    /**
+     * @internal
+     */
     public function setTitle(string $title): void
     {
         $this->title = $title;
@@ -37,6 +43,9 @@ class DiscountPercent
         return $this->percent;
     }
 
+    /**
+     * @internal
+     */
     public function setPercent(float $percent): void
     {
         $this->percent = $percent;

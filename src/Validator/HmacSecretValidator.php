@@ -18,6 +18,9 @@ readonly class HmacSecretValidator
     /**
      * Validate HMAC header from request.
      *
+     * @param Hmac   $hmac HMAC secret key
+     * @param string $json unas webhook payload in JSON format
+     *
      * @throws \Exception
      */
     public function validate(Hmac $hmac, string $json): void
@@ -27,6 +30,13 @@ readonly class HmacSecretValidator
         }
     }
 
+    /**
+     * Verify HMAC header.
+     *
+     * @param string $hmacHeader HMAC header from request
+     * @param string $json       unas webhook payload in JSON format
+     * @param Hmac   $hmac       HMAC secret key
+     */
     private function verify(string $hmacHeader, string $json, Hmac $hmac): bool
     {
         return hash_equals($hmacHeader, base64_encode(hash_hmac('sha256', $json, $hmac->getValue(), true)));

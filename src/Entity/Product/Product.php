@@ -38,6 +38,9 @@ class Product
         return $this->productId;
     }
 
+    /**
+     * @internal
+     */
     public function setProductId(ProductId $productId): void
     {
         $this->productId = $productId;
@@ -48,6 +51,9 @@ class Product
         return $this->sku;
     }
 
+    /**
+     * @internal
+     */
     public function setSku(string $sku): void
     {
         $this->sku = $sku;
@@ -58,6 +64,9 @@ class Product
         return $this->skuType;
     }
 
+    /**
+     * @internal
+     */
     public function setSkuType(string $skuType): void
     {
         $this->skuType = $skuType;
@@ -68,6 +77,9 @@ class Product
         return $this->name;
     }
 
+    /**
+     * @internal
+     */
     public function setName(string $name): void
     {
         $this->name = $name;
@@ -78,6 +90,9 @@ class Product
         return $this->category;
     }
 
+    /**
+     * @internal
+     */
     public function setCategory(ProductCategory $category): void
     {
         $this->category = $category;
@@ -88,6 +103,9 @@ class Product
         return $this->quantity;
     }
 
+    /**
+     * @internal
+     */
     public function setQuantity(float $quantity): void
     {
         $this->quantity = $quantity;
@@ -98,6 +116,9 @@ class Product
         return $this->unit;
     }
 
+    /**
+     * @internal
+     */
     public function setUnit(string $unit): void
     {
         $this->unit = $unit;
@@ -108,6 +129,9 @@ class Product
         return $this->netPrice;
     }
 
+    /**
+     * @internal
+     */
     public function setNetPrice(float $netPrice): void
     {
         $this->netPrice = $netPrice;
@@ -118,6 +142,9 @@ class Product
         return $this->grossPrice;
     }
 
+    /**
+     * @internal
+     */
     public function setGrossPrice(float $grossPrice): void
     {
         $this->grossPrice = $grossPrice;
@@ -128,6 +155,9 @@ class Product
         return $this->vatRate;
     }
 
+    /**
+     * @internal
+     */
     public function setVatRate(float $vatRate): void
     {
         $this->vatRate = $vatRate;
@@ -138,6 +168,9 @@ class Product
         return $this->discounted;
     }
 
+    /**
+     * @internal
+     */
     public function setDiscounted(bool $discounted): void
     {
         $this->discounted = $discounted;
@@ -148,6 +181,9 @@ class Product
         return $this->productParameters;
     }
 
+    /**
+     * @internal
+     */
     public function setProductParameters(array $productParameters): void
     {
         $this->productParameters = $productParameters;

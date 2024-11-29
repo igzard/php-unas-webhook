@@ -6,6 +6,9 @@ use Igzard\PhpUnasWebhook\Config;
 
 class ConfigTest extends PHPUnit\Framework\TestCase
 {
+    /**
+     * Test config value object
+     */
     public function testConfig(): void
     {
         $config = Config::init([

@@ -26,6 +26,9 @@ class Shipping
         return $this->name;
     }
 
+    /**
+     * @internal
+     */
     public function setName(string $name): void
     {
         $this->name = $name;
@@ -36,6 +39,9 @@ class Shipping
         return $this->zip;
     }
 
+    /**
+     * @internal
+     */
     public function setZip(string $zip): void
     {
         $this->zip = $zip;
@@ -46,6 +52,9 @@ class Shipping
         return $this->city;
     }
 
+    /**
+     * @internal
+     */
     public function setCity(string $city): void
     {
         $this->city = $city;
@@ -56,6 +65,9 @@ class Shipping
         return $this->street;
     }
 
+    /**
+     * @internal
+     */
     public function setStreet(string $street): void
     {
         $this->street = $street;
@@ -66,6 +78,9 @@ class Shipping
         return $this->country;
     }
 
+    /**
+     * @internal
+     */
     public function setCountry(Country $country): void
     {
         $this->country = $country;
@@ -76,6 +91,9 @@ class Shipping
         return $this->county;
     }
 
+    /**
+     * @internal
+     */
     public function setCounty(Country $county): void
     {
         $this->county = $county;

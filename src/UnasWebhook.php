@@ -27,7 +27,11 @@ final readonly class UnasWebhook
     private WebhookProcessor $webhookProcessor;
 
     /**
-     * @throws \Exception
+     * Instantiation of UnasWebhook.
+     *
+     * @param array $configuration The configuration array
+     *
+     * @throws \Exception It throws an exception if HMAC is invalid
      */
     public function __construct(array $configuration)
     {
@@ -45,7 +49,7 @@ final readonly class UnasWebhook
      *
      * @return UnasOrder Webhook object response
      *
-     * @throws \Exception
+     * @throws \Exception It throws an exception if HMAC is invalid
      */
     public function process(string $json): UnasOrder
     {

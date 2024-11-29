@@ -10,6 +10,9 @@ abstract class IdCollection extends GenericCollection
     {
     }
 
+    /**
+     * Get the value of Id.
+     */
     public function getValue(): int
     {
         return $this->value;
