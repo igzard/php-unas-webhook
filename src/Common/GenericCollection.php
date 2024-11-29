@@ -13,8 +13,7 @@ abstract class GenericCollection implements \IteratorAggregate, \JsonSerializabl
         return new \ArrayIterator($this->values);
     }
 
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return get_object_vars($this);
     }
