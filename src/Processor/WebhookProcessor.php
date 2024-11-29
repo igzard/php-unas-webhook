@@ -12,6 +12,8 @@ use Igzard\PhpUnasWebhook\Validator\JsonValidator;
 class WebhookProcessor
 {
     /**
+     * Decode JSON payload and create UnasOrder entity.
+     *
      * @throws \Exception
      */
     public function handle(string $json): UnasOrder

@@ -30,6 +30,9 @@ class Customer
         return $this->contact;
     }
 
+    /**
+     * @internal
+     */
     public function setContact(Contact $contact): void
     {
         $this->contact = $contact;
@@ -40,6 +43,9 @@ class Customer
         return $this->shipping;
     }
 
+    /**
+     * @internal
+     */
     public function setShipping(Shipping $shipping): void
     {
         $this->shipping = $shipping;
@@ -50,6 +56,9 @@ class Customer
         return $this->invoice;
     }
 
+    /**
+     * @internal
+     */
     public function setInvoice(Invoice $invoice): void
     {
         $this->invoice = $invoice;
@@ -60,6 +69,9 @@ class Customer
         return $this->newsAuth;
     }
 
+    /**
+     * @internal
+     */
     public function setNewsAuth(string $newsAuth): void
     {
         $this->newsAuth = $newsAuth;
@@ -70,6 +82,9 @@ class Customer
         return $this->group;
     }
 
+    /**
+     * @internal
+     */
     public function setGroup(string $group): void
     {
         $this->group = $group;
@@ -80,6 +95,9 @@ class Customer
         return $this->lang;
     }
 
+    /**
+     * @internal
+     */
     public function setLang(Language $lang): void
     {
         $this->lang = $lang;
@@ -90,6 +108,9 @@ class Customer
         return $this->subscribedToNewsletter;
     }
 
+    /**
+     * @internal
+     */
     public function setSubscribedToNewsletter(bool $subscribedToNewsletter): void
     {
         $this->subscribedToNewsletter = $subscribedToNewsletter;
@@ -100,6 +121,9 @@ class Customer
         return $this->email;
     }
 
+    /**
+     * @internal
+     */
     public function setEmail(Email $email): void
     {
         $this->email = $email;

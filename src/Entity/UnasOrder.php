@@ -46,6 +46,9 @@ class UnasOrder
         return $this->shopId;
     }
 
+    /**
+     * @internal
+     */
     public function setShopId(ShopId $shopId): void
     {
         $this->shopId = $shopId;
@@ -56,6 +59,9 @@ class UnasOrder
         return $this->orderId;
     }
 
+    /**
+     * @internal
+     */
     public function setOrderId(OrderId $orderId): void
     {
         $this->orderId = $orderId;
@@ -66,6 +72,9 @@ class UnasOrder
         return $this->grandTotal;
     }
 
+    /**
+     * @internal
+     */
     public function setGrandTotal(float $grandTotal): void
     {
         $this->grandTotal = $grandTotal;
@@ -76,6 +85,9 @@ class UnasOrder
         return $this->time;
     }
 
+    /**
+     * @internal
+     */
     public function setTime(int $time): void
     {
         $this->time = $time;
@@ -86,6 +98,9 @@ class UnasOrder
         return $this->dateTime;
     }
 
+    /**
+     * @internal
+     */
     public function setDateTime(\DateTime $dateTime): void
     {
         $this->dateTime = $dateTime;
@@ -96,6 +111,9 @@ class UnasOrder
         return $this->comment;
     }
 
+    /**
+     * @internal
+     */
     public function setComment(string $comment): void
     {
         $this->comment = $comment;
@@ -106,6 +124,9 @@ class UnasOrder
         return $this->currency;
     }
 
+    /**
+     * @internal
+     */
     public function setCurrency(Currency $currency): void
     {
         $this->currency = $currency;
@@ -116,6 +137,9 @@ class UnasOrder
         return $this->orderStatus;
     }
 
+    /**
+     * @internal
+     */
     public function setOrderStatus(OrderStatus $orderStatus): void
     {
         $this->orderStatus = $orderStatus;
@@ -126,6 +150,9 @@ class UnasOrder
         return $this->products;
     }
 
+    /**
+     * @internal
+     */
     public function setProducts(ProductCollection $products): void
     {
         $this->products = $products;
@@ -136,6 +163,9 @@ class UnasOrder
         return $this->customer;
     }
 
+    /**
+     * @internal
+     */
     public function setCustomer(Customer $customer): void
     {
         $this->customer = $customer;
@@ -146,6 +176,9 @@ class UnasOrder
         return $this->shipping;
     }
 
+    /**
+     * @internal
+     */
     public function setShipping(Shipping $shipping): void
     {
         $this->shipping = $shipping;
@@ -156,6 +189,9 @@ class UnasOrder
         return $this->orderParameters;
     }
 
+    /**
+     * @internal
+     */
     public function setOrderParameters(array $orderParameters): void
     {
         $this->orderParameters = $orderParameters;
@@ -166,6 +202,9 @@ class UnasOrder
         return $this->payment;
     }
 
+    /**
+     * @internal
+     */
     public function setPayment(Payment $payment): void
     {
         $this->payment = $payment;
@@ -176,6 +215,9 @@ class UnasOrder
         return $this->discountPercent;
     }
 
+    /**
+     * @internal
+     */
     public function setDiscountPercent(DiscountPercent $discountPercent): void
     {
         $this->discountPercent = $discountPercent;

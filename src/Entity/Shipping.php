@@ -17,6 +17,9 @@ class Shipping
         return $this->name;
     }
 
+    /**
+     * @internal
+     */
     public function setName(string $name): void
     {
         $this->name = $name;
@@ -27,6 +30,9 @@ class Shipping
         return $this->type;
     }
 
+    /**
+     * @internal
+     */
     public function setType(string $type): void
     {
         $this->type = $type;
@@ -37,6 +43,9 @@ class Shipping
         return $this->cost;
     }
 
+    /**
+     * @internal
+     */
     public function setCost(float $cost): void
     {
         $this->cost = $cost;
