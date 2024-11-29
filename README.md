@@ -18,11 +18,13 @@
 
 ### Get Hmac Secret from UNAS
 
+```
 1. First step you need to login to your unas webshop admin (https://unas.hu/belepes)
 2. Navigate to Settings -> External connections -> API connection (https://shop.unas.hu/admin_config_connect_api.php)
 3. Click to "Verify webhook" tab
 4. Click to "HMAC key generation"
 5. Copy+Paste your Hmac secret code
+```
 
 ### Installation
 
