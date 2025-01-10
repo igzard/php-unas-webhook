@@ -1,6 +1,6 @@
 # PHP Unas Webhook Processor
 
-🛍️ Use this package to process incoming webhooks from Unas.
+🛍️ Use this package to process incoming webhooks from <a href="https://unas.hu">Unas</a>.
 
 <p align="left">
     <p align="left">
